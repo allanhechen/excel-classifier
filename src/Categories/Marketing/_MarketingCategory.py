@@ -16,9 +16,9 @@ for _, module_name, _ in pkgutil.iter_modules([str(dir)]):
 
         for name, obj in inspect.getmembers(module, inspect.isclass):
             if obj.__module__ == module.__name__:
-                all_classes.add(obj)
+                all_classes.add(obj())
 
 
 class MarketingCategory(Category):
-    def __init___(self):
+    def __init__(self):
         super().__init__("Marketing", expense_groups=all_classes)
