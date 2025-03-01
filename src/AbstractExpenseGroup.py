@@ -35,3 +35,6 @@ class ExpenseGroup(ABC):
 
     def get_supplier_name(self):
         return self._supplier_name
+
+    def get_description(self):
+        return self._description

@@ -17,18 +17,8 @@ class Category(ABC):
 
         return False
 
-    def get_expenses(
-        self, starting_date: date, ending_date: date
-    ) -> dict[str, set[Expense]]:
-        results: dict[str, set[Expense]] = {}
-
-        for expense_group in self._expense_groups:
-            expense_group_expenses = expense_group.get_expenses(
-                starting_date, ending_date
-            )
-            results[expense_group.get_supplier_name()] = expense_group_expenses
-
-        return results
+    def get_expense_groups(self) -> set[ExpenseGroup]:
+        return self._expense_groups
 
     def get_name(self) -> str:
         return self._name
